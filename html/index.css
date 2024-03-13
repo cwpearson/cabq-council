@@ -1,0 +1,4 @@
+.record {
+    display: flex;
+    flex-direction: row;
+}

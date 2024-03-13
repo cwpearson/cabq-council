@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Webpage</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+
+<body>
+    <h1>My Webpage</h1>
+    <div class="records">
+        {% for record in records %}
+        <div class="record">
+            <div class="pub-date">{{ record.pub_date }}</div>
+            {% if record.minutes %}
+            <div class="minutes">{{ record.minutes }}</div>
+            {% endif %}
+            {% if record.minutes_summary %}
+            <div class="minutes-summary">
+                <a href="{{ record.minutes_summary }}">Minutes Summary</a>
+            </div>
+            {% endif %}
+            {% if record.video_transcript %}
+            <div class="video-transcript">{{ record.video_transcript }}</div>
+            {% endif %}
+            {% if record.video_summary %}
+            <div class="video-summary">{{ record.video_summary }}</div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {# a comment #}
+</body>
+
+</html>
