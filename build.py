@@ -35,32 +35,32 @@ if __name__ == "__main__":
 
     records = []
 
-    for e in Path("html").glob("*"):
+    for e in Path("docs").glob("*"):
         if e.is_dir():
             when = dir_name_to_time(e.name)
             print(when)
 
             video_transcript = e / "video_transcript"
             if video_transcript.is_dir():
-                video_transcript = video_transcript.relative_to("html")
+                video_transcript = video_transcript.relative_to("docs")
             else:
                 video_transcript = None
 
             video_summary = e / "video_summary.txt"
             if video_summary.is_file():
-                video_summary = video_summary.relative_to("html")
+                video_summary = video_summary.relative_to("docs")
             else:
                 video_summary = None
 
             minutes_summary = e / "minutes_summary.txt"
             if minutes_summary.is_file():
-                minutes_summary = minutes_summary.relative_to("html")
+                minutes_summary = minutes_summary.relative_to("docs")
             else:
                 minutes_summary = None
 
             minutes = e / "minutes.pdf"
             if minutes.is_file():
-                minutes = minutes.relative_to("html")
+                minutes = minutes.relative_to("docs")
             else:
                 minutes = None
 
@@ -81,5 +81,5 @@ if __name__ == "__main__":
 
     html = template.render(records=records)
     print(html)
-    with open("html/index.html", "w") as f:
+    with open("docs/index.html", "w") as f:
         f.write(html)
